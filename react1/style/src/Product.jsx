@@ -1,4 +1,4 @@
-export default function Product({title} )
+export default function Product({title,description} )
 {
     return (
     <div className="product">
