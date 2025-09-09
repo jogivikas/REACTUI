@@ -3,6 +3,8 @@
 export default function Title() {
     
     return (
-        <div> hello vikas</div>
+        <div className="title"> hello vikas
+        <p> {2*2}</p>
+        </div>
     )
 }
