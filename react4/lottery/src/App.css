@@ -1,0 +1,322 @@
+/* App.css - Modern, responsive stylesheet for a React app */
+
+/* -------------------------
+   Base / Reset-ish
+   ------------------------- */
+:root{
+  --bg: #f7f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --primary: #2563eb;
+  --primary-600: #1e40af;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+}
+
+/* dark mode variables (toggle .dark on body) */
+body.dark {
+  --bg: #071124;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --text: #e6eef8;
+  --primary: #5eead4;
+  --primary-600: #14b8a6;
+  --glass: rgba(11,18,24,0.55);
+  --shadow: 0 8px 22px rgba(2,6,23,0.6);
+}
+
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg), rgba(0,0,0,0.02));
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
+  padding: 0;
+}
+
+/* -------------------------
+   Layout
+   ------------------------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* Header / Nav */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.brand .logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  display: inline-grid;
+  place-items: center;
+  color: white;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Nav items */
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.nav a:hover { color: var(--text); background: var(--glass); }
+
+/* -------------------------
+   Hero / Cards / Sections
+   ------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 22px;
+  align-items: start;
+  margin: 22px 0 30px;
+}
+
+@media (max-width: 920px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  transition: transform .16s ease, box-shadow .16s ease;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.card:hover { transform: translateY(-4px); }
+
+.card-title {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.card-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* Grid utilities */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 720px) {
+  .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+}
+
+/* -------------------------
+   Buttons
+   ------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 6px 14px rgba(37,99,235,0.14);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  text-decoration: none;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: none;
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--muted);
+  box-shadow: none;
+}
+
+/* Icon button (circular) */
+.icon-btn {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+/* -------------------------
+   Forms
+   ------------------------- */
+.form-row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.input, textarea, select {
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(10,10,10,0.06);
+  background: transparent;
+  outline: none;
+  font-size: 0.96rem;
+  color: var(--text);
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+.input:focus, textarea:focus, select:focus {
+  box-shadow: 0 6px 18px rgba(37,99,235,0.08);
+  border-color: rgba(37,99,235,0.9);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* form helper text */
+.hint { font-size: 0.85rem; color: var(--muted); }
+
+/* -------------------------
+   Lists / Items
+   ------------------------- */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list-item {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background .12s ease;
+}
+.list-item + .list-item { margin-top: 8px; }
+.list-item:hover { background: var(--glass); }
+
+/* small badges */
+.badge {
+  display:inline-block;
+  padding:6px 8px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:0.78rem;
+  background: rgba(37,99,235,0.12);
+  color: var(--primary-600);
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.footer {
+  margin-top: auto;
+  padding: 22px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* -------------------------
+   Utilities
+   ------------------------- */
+.row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.stack { display:flex; flex-direction:column; gap:10px; }
+
+.center { display:grid; place-items:center; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+
+/* helper spacing classes */
+.p-8 { padding: 32px; }
+.mt-8 { margin-top: 32px; }
+.mb-8 { margin-bottom: 32px; }
+
+/* -------------------------
+   Tiny components / chips
+   ------------------------- */
+.kpi {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+  box-shadow: var(--shadow);
+}
+
+/* -------------------------
+   Accessibility tweaks
+   ------------------------- */
+:focus { outline: 2px dashed rgba(37,99,235,0.22); outline-offset: 3px; }
+
+/* -------------------------
+   Example small helper for dark mode toggle position
+   ------------------------- */
+.theme-toggle {
+  padding: 6px;
+  border-radius: 10px;
+  display:inline-grid;
+  place-items:center;
+  cursor:pointer;
+  border: 1px solid rgba(0,0,0,0.04);
+  background: var(--glass);
+}
+
+/* -------------------------
+   End of file
+   ------------------------- */
