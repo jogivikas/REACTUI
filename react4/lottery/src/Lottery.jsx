@@ -10,6 +10,7 @@ let [ticket,setTicket] = useState(3);
             <div className="lottery">
                 <h3>generate Ticket</h3>
                 <h1>hi</h1>
+                <h2>hii</h2>
                 <span>
                    <p>{ticket}(n)</p>
                 </span>
