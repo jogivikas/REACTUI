@@ -11,6 +11,7 @@ let [ticket,setTicket] = useState(3);
                 <h3>generate Ticket</h3>
                 <h1>hi</h1>
                 <h2>hii</h2>
+                <h>hghg</h>
                 <span>
                    <p>{ticket}(n)</p>
                 </span>
