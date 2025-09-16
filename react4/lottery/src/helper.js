@@ -6,4 +6,8 @@ function helper(n) {
   return arr;
 }
 
-export { helper };
+function sum(arr) {
+  return arr.reduce((a, b) => a + b, 0);
+}
+
+export { helper, sum };
