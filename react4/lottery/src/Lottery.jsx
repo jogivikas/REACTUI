@@ -11,7 +11,7 @@ let iswinning=sum(ticket)===15 ;
 
             <div className="lottery">
                 <h3>generate Ticket</h3>
-                <h1>hi</h1>
+              
                 
              <span>{ticket[0]}</span>
              <span>{ticket[1]}</span>
@@ -23,3 +23,15 @@ let iswinning=sum(ticket)===15 ;
         </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
